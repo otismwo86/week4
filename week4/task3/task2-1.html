@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8"/>
+        <title>Welcome</title>
+        <link rel="stylesheet" type="text/css" href="week4/task3.css"/>
+    </head>
+    <body>
+            <div class="web_header">歡迎光臨，這是會員頁面</div>
+            <div class="login_header">恭喜您，成功登入頁面</div>
+            <div class="logout" onclick="redirectToSignOut(this)"><span class="hover"><u>登出系統</u></span></div>
+        
+    <script>
+        function redirectToSignOut(element) {
+            window.location.href = 'http://127.0.0.1:8000/signout';
+            element.classList.add('clicked'); 
+        }
+        
+    </script>
+    </body>
+</html>

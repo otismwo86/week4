@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8"/>
+        <title>Welcome</title>
+        <link rel="stylesheet" type="text/css" href="week4/task1.css"/>
+    </head>
+    <body>
+        <form id="login_form">
+            <div class="web_header">歡迎光臨，請輸入帳號密碼</div>
+            <div class="login_header">登入系統</div>
+            <div class="username">帳號<input id = "username" style = "margin-left: 10px;"></div>
+            <div class="password">密碼<input id = "password" type = "password" style = "margin-left: 10px;"></div>
+            <div class="agreement">同意條款<input id = "checkbox" type = "checkbox" style = "margin-left: 10px;"></div>
+            <div style="text-align: center;"><button type="button" onclick="checkboxorsubmit()">登入</button></div>
+        </form>
+    <script>
+        function checkboxorsubmit(){
+            let checkbox = document.getElementById("checkbox");
+            if(checkbox.checked){
+                document.getElementById("login_form").submit();
+            }else{
+                alert("Please check the checkbox first");
+            }
+        }
+        
+    </script>
+    </body>
+</html>
