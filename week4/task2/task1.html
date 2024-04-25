@@ -17,12 +17,6 @@
         </form>
     <script>
         function checkboxorsubmit(){
-            let username = document.getElementById("username").value;
-            let password = document.getElementById("password").value;
-            if (username.trim()=="" | password.trim() == ""){
-                alert("Please enter your username and password")
-                return false;
-            }
             let checkbox = document.getElementById("checkbox");
             if(!checkbox.checked){
                 alert("Please check the checkbox first");
