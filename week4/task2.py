@@ -23,10 +23,12 @@ async def index(request:Request):
         ,{'request':request})
 
 @app.post("/signin")
-async def sign_in(request: Request,username: str = Form(), password: str = Form()):
+async def sign_in(request: Request,username: str = Form(None), password: str = Form(None)):
     form = await request.form()
     username = form.get('username')
     password = form.get('password')
+    if not username or not password:
+        return RedirectResponse(url="/error?message=請輸入帳號和密碼", status_code=303)
     if username == test_username and password == test_password:
         return RedirectResponse(url="/member", status_code=303)
     else:
@@ -45,6 +47,10 @@ async def error(request:Request, message: str):
     return templates.TemplateResponse(
         "task2-2.html",
         {'request':request,'message': message}
+    )
+
+if __name__=='__main__':
+    uvicorn.run("task2:app",reload=True)
     )
 
 if __name__=='__main__':
