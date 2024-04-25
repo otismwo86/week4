@@ -29,7 +29,9 @@ async def home(request: Request):
     return templates.TemplateResponse("task1.html", {'request': request})
 
 @app.post("/signin")
-async def sign_in(request: Request, username: str = Form(...), password: str = Form(...)):
+async def sign_in(request: Request, username: str = Form(None), password: str = Form(None)):
+    if not username or not password:
+        return RedirectResponse(url="/error?message=請輸入帳號和密碼", status_code=303)
     if username == user["username"] and password == user["password"]:
         request.session[SIGNED_IN] = True
         return RedirectResponse(url="/member", status_code=303)
